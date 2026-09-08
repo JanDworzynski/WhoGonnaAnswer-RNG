@@ -1,0 +1,84 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <style>
+             body {
+                background-color: #f1e8e8;
+                margin: 0;
+            }
+            .naglowek { 
+                color: #ffffff;
+                text-align: center;
+                font-size: 2vw;
+            }
+            header {
+                background-color: #1d1b1b;
+                position: relative;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            h1 {
+                text-align: center;
+            }
+            input[type="text"] {
+                display: block;
+                margin: 0 auto;
+                padding: 10px;
+                font-size: 16px;
+                width: 300px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button {
+                display: block;
+                margin: 10px auto;
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            p {
+                text-align: center;
+                font-size: 18px;
+            }
+        </style>
+        <script>
+            function generujliczbe() {
+            var x = parseInt(document.getElementById("liczba1").value);
+            var y = parseInt(document.getElementById("liczba2").value);
+            var wynik = document.getElementById("wynik");
+            if (isNaN(x) || isNaN(y)) {
+                wynik.textContent = "❌ Wpisz liczby!";
+                return;
+            }
+            if (x > y) {
+                wynik.textContent = "❌ Pierwsza liczba musi być mniejsza!";
+                return;
+            }
+            var losowa = Math.floor(Math.random() * (y - x + 1)) + x;
+            if (losowa == 18) {
+                losowa--;  
+            }
+            wynik.textContent = "🎲 Wylosowana liczba: " + losowa;
+        }
+        </script>
+        <title>AnswerRNG</title>
+
+    </head>
+    <body>
+    <header>
+        <h1 class="naglowek">🎲 AnswerRNG 🎲</h1>
+    </header>
+
+        <h1>Generuj liczbę</h1>
+        <input type="text" id="liczba1" placeholder="od">
+        <input type="text" id="liczba2" placeholder="do">
+        <button onclick="generujliczbe()">Generuj</button>
+        <p id="wynik">Liczba pojawi się tutaj</p>
+    </body>
+</html>
